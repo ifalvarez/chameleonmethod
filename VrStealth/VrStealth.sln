@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VrStealth", "VrStealth.csproj", "{4A64DFA2-71B1-B613-B474-F75706E9B01F}"
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VrStealth.CSharp", "VrStealth.CSharp.csproj", "{256E37F5-6C3F-DF10-5F1A-4A09A8D635EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4A64DFA2-71B1-B613-B474-F75706E9B01F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A64DFA2-71B1-B613-B474-F75706E9B01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A64DFA2-71B1-B613-B474-F75706E9B01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A64DFA2-71B1-B613-B474-F75706E9B01F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256E37F5-6C3F-DF10-5F1A-4A09A8D635EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256E37F5-6C3F-DF10-5F1A-4A09A8D635EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256E37F5-6C3F-DF10-5F1A-4A09A8D635EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256E37F5-6C3F-DF10-5F1A-4A09A8D635EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
