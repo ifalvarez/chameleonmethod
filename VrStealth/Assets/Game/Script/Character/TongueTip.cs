@@ -3,16 +3,22 @@
 public class TongueTip : MonoBehaviour
 {
     public delegate void TongueEventDelegate(Vector3 worldHit);
-    public static event TongueEventDelegate OnTongueHit;
+    public static event TongueEventDelegate OnTongueHit, OnHardHit;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit Something");
-        if (other.tag != "Jugador")
+        if (other.tag == "Stickable")
         {
             if (OnTongueHit != null)
             {
                 OnTongueHit(transform.position);
+            }
+        }
+        else if(other.tag == "HardSurface")
+        {
+            if(OnHardHit != null)
+            {
+                OnHardHit(transform.position);
             }
         }
     }

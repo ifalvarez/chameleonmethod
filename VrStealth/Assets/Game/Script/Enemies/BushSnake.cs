@@ -10,8 +10,10 @@ public class BushSnake : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "SnakeTrap")
+        if(other.gameObject.tag == "Jugador")
         {
+
+            print("Looking At Player");
             attack = SnakeAttack();
             StartCoroutine(attack);
         }
@@ -19,8 +21,11 @@ public class BushSnake : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        StopAllCoroutines();
-        Debug.Log("Saved");
+        if (other.tag == "Jugador")
+        {
+            StopAllCoroutines();
+            Debug.Log("Player Gone");
+        }
     }
 
     IEnumerator attack;
@@ -29,5 +34,4 @@ public class BushSnake : MonoBehaviour
         yield return new WaitForSeconds(attackTime);
         Debug.Log("I ate the chameleon");
     }
-
 }

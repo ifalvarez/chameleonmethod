@@ -10,11 +10,12 @@ public class Tongue : MonoBehaviour
     public float moveToTargetSpeed = 0.0f;
     float initialDistance = 0.0f;
     Vector3 targetStartPosition;
-    bool stretching = false;
+    bool stretching = true;
 
     private void Awake()
     {
         TongueTip.OnTongueHit += StartMoveToTarget;
+        TongueTip.OnHardHit += HardSurfaceHit;
         initialDistance = Vector3.Distance(transform.position, tongueTip.position);
         targetStartPosition = tongueTip.localPosition;
     }
@@ -33,16 +34,19 @@ public class Tongue : MonoBehaviour
         StartCoroutine(moveTorwardsTarget);
     }
 
+    void HardSurfaceHit(Vector3 hitPoint)
+    {
+        stretching = false;
+    }
+
     IEnumerator moveTorwardsTarget;
     IEnumerator moveToTarget(Vector3 hitPoint)
     {
         while(true)
         {
             float lastDistance = Vector3.Distance(transform.position, tongueTip.position);
-            Debug.Log(Vector3.Distance(body.position, hitPoint));
             body.position = Vector3.MoveTowards(body.position, hitPoint, moveToTargetSpeed);
             transform.LookAt(tongueTip);
-            //if(Vector3.Distance(transform.position, hitPoint) <= 1.0f)
             if(lastDistance < Vector3.Distance(transform.position, hitPoint) || Vector3.Distance(body.position, hitPoint) <= 1.0f)
             {
                 body.position = hitPoint;
