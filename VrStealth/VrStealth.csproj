@@ -84,8 +84,9 @@
     <Compile Include="Assets\Game\Script\Character\CharacterControll.cs" />
     <Compile Include="Assets\Game\Script\Character\Tongue.cs" />
     <Compile Include="Assets\Game\Script\Character\TongueTip.cs" />
-    <Compile Include="Assets\Game\Script\Enemies\Bird.cs" />
-    <Compile Include="Assets\Game\Script\Enemies\BushSnake.cs" />
+    <Compile Include="Assets\Game\Script\Enemies\Bird\Bird.cs" />
+    <Compile Include="Assets\Game\Script\Enemies\Bird\BirdDectection.cs" />
+    <Compile Include="Assets\Game\Script\Enemies\BushSnake\BushSnake.cs" />
     <Compile Include="Assets\Game\Script\Interface\LoadLevel.cs" />
     <Compile Include="Assets\Game\Script\MouseRotation.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
