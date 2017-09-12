@@ -228,6 +228,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.45
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8a1f073133efbf441853652937510cc2, type: 3}
+      propertyPath: m_TagString
+      value: Stickable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a1f073133efbf441853652937510cc2, type: 3}
   m_IsPrefabParent: 0
@@ -736,31 +740,31 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.17
+      value: -9.42
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.94
+      value: 15.15
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.33
+      value: 7.16
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0000000165191
+      value: 0.000000011536067
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.654773
+      value: 0.84935087
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000001431052
+      value: 0.000000018563156
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.75582564
+      value: 0.52782875
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_RootOrder
@@ -768,7 +772,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 81.805
+      value: 116.282005
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b4bfbdf5760c8d4cb08151204a56573, type: 3}
       propertyPath: m_LocalScale.x
@@ -805,8 +809,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionArea: {fileID: 1732817378}
-  flySpeed: 5
-  maxDistanceToTurn: 0
+  flySpeed: 15
+  maxDistanceToTurn: 20
+  rotationSpeed: 100
+  minReturnAngle: 2
+  left: 0
+  state: 0
 --- !u!1001 &841847780
 Prefab:
   m_ObjectHideFlags: 0
@@ -1875,6 +1883,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a1f073133efbf441853652937510cc2, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1640015702 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 8a1f073133efbf441853652937510cc2, type: 3}
+  m_PrefabInternal: {fileID: 18997586}
+--- !u!65 &1640015707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1640015702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.223749, y: 2.1286204, z: 9.778466}
+  m_Center: {x: -2.829129, y: 54.075653, z: -0.9987694}
 --- !u!1001 &1732817375
 Prefab:
   m_ObjectHideFlags: 0

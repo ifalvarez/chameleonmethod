@@ -6,14 +6,17 @@ public class Bird : MonoBehaviour
     public BirdDectection detectionArea;
     public float flySpeed = 0.0f;
     public float maxDistanceToTurn = 0.0f;
+    public float rotationSpeed = 0.0f;
+    public float minReturnAngle = 0.0f;
     Vector3 startPosition;
+    public bool left = false;
 
-    public enum TurnDirection
+    public enum BirdState
     {
-        left,
-        right
+        move,
+        turning
     }
-    TurnDirection turn = TurnDirection.left;
+    public BirdState state = BirdState.move;
 
     private void Awake()
     {
@@ -21,10 +24,17 @@ public class Bird : MonoBehaviour
         startPosition = transform.position;
     }
 
+    private void Start()
+    {
+        flyAround = FlyAround();
+        StartCoroutine(flyAround);
+    }
+
     private void OnPlayerDetected(Transform detectedPosition)
     {
         StopAllCoroutines();
-        attackPlayer = AttackPlayer(detectedPosition.position);
+        attackPlayer = AttackPlayer(detectedPosition);
+        StartCoroutine(attackPlayer);
     }
 
     IEnumerator flyAround;
@@ -32,20 +42,49 @@ public class Bird : MonoBehaviour
     {
         while(true)
         {
-            transform.position += transform.forward * flySpeed * Time.deltaTime;
-            if (Vector3.Distance(startPosition, transform.position) >= maxDistanceToTurn)
+            if (state == BirdState.move)
             {
+                transform.position += transform.forward * flySpeed * Time.deltaTime;
+                if (Vector3.Distance(startPosition, transform.position) >= maxDistanceToTurn && Vector3.Angle(new Vector3(startPosition.x, 0.0f, startPosition.z) - new Vector3(transform.position.x, 0.0f, transform.position.z), transform.forward) >= minReturnAngle)
+                {
+                    state = BirdState.turning;
+                }
+            }
+            else if(state == BirdState.turning)
+            {
+                transform.position += transform.forward * flySpeed * Time.deltaTime;
+                if(left == false)
+                {
+                    transform.localRotation *= Quaternion.Euler(0.0f, rotationSpeed * Time.deltaTime, 0.0f);
+                }
+                else
+                {
+                    transform.localRotation *= Quaternion.Euler(0.0f, -rotationSpeed * Time.deltaTime, 0.0f);
+                }
 
+                if(Vector3.Angle(new Vector3(startPosition.x, 0.0f, startPosition.z) - new Vector3(transform.position.x, 0.0f, transform.position.z), transform.forward) <= minReturnAngle)
+                {
+                    left = left == false ? true : false;
+                    state = BirdState.move;
+                    transform.LookAt(startPosition);
+                }
             }
             yield return null;
         }
     }
 
     IEnumerator attackPlayer;
-    IEnumerator AttackPlayer(Vector3 target)
+    IEnumerator AttackPlayer(Transform target)
     {
         while(true)
         {
+            transform.LookAt(target.position);
+            transform.position += transform.forward * flySpeed * Time.deltaTime;
+            if(Vector3.Distance(transform.position, target.position) <= 0.1f)
+            {
+                Debug.Log("Game Over");
+                break;
+            }
             yield return null;
         }
     }
