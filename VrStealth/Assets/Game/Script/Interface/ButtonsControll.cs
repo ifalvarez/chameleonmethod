@@ -33,10 +33,10 @@ public class ButtonsControll : MonoBehaviour
         Application.Quit();
     }
 
-    public void RetryScene()
+    public void RetryScene(GameObject pauseObject)
     {
         actualSceneName = GetActualSceneName();
-        
+        pauseObject.GetComponent<PauseBug>().PauseOff();
         SceneManager.UnloadSceneAsync(actualSceneName);
         SceneManager.LoadSceneAsync(actualSceneName, LoadSceneMode.Additive);
     }
@@ -45,7 +45,7 @@ public class ButtonsControll : MonoBehaviour
     {
         //string nextLevelName=""; //tomar referencia del nivel
         SceneManager.UnloadSceneAsync(GetActualSceneName());
-        SceneManager.LoadSceneAsync(nextLevelName, LoadSceneMode.Additive);
+        SceneManager.LoadScene(nextLevelName, LoadSceneMode.Additive);
     }
 
     private string GetActualSceneName()
@@ -76,8 +76,8 @@ public class ButtonsControll : MonoBehaviour
 
     private bool isPuase;
 
-    public void Pause(GameObject pauseCanvas)
+    public void Pause(GameObject pauseObject)
     {
-        pauseCanvas.SetActive(!pauseCanvas.activeInHierarchy);
+        pauseObject.GetComponent<PauseBug>().PauseOff();
     }
 }

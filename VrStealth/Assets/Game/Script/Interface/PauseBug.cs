@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseBug : MonoBehaviour {
 
-    [SerializeField] private string tongeTag;
+    [SerializeField] private string tongueTag;
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private GameObject player;
 
@@ -14,36 +16,47 @@ public class PauseBug : MonoBehaviour {
     private bool isInteractable;
     private Vector3 bugPosition;
 
+    void Awake()
+    {
+        SceneManager.sceneLoaded += LoadPlayer;
+    }
     private void Start()
     {
+        pauseCanvas.SetActive(false);
         coll = GetComponent<BoxCollider>();
         mesh = GetComponent<MeshRenderer>();
-        player = GameObject.Find("Player");
-        bugPosition = new Vector3(player.transform.position.x + 5, player.transform.position.y + 5, player.transform.position.z + 5);
+        
     }
 
+    private void LoadPlayer(Scene arg0, LoadSceneMode arg1)
+    {
+        if(arg0.buildIndex != 0 || arg0.buildIndex != 1)
+        {
+            player = GameObject.Find("Player");        
+            bugPosition = new Vector3(player.transform.position.x + 5, player.transform.position.y + 5, player.transform.position.z + 5);
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        Pause();
-        if(other.transform.tag == tongeTag)
+        if(other.transform.tag == tongueTag)
         {
-            
+            print("pause");
+            Pause();            
         }
     }
 
     void Update()
     {
         transform.position = bugPosition;
-        if(!isInteractable)
+       /* if(!isInteractable)
         {
             if(canvasIsActive == pauseCanvas.activeInHierarchy)
             {
                 PauseOff();
                 isInteractable = true;
-
             }
-        }
+        }*/
     }
 
  /*   void OnMouseDown()
@@ -51,10 +64,11 @@ public class PauseBug : MonoBehaviour {
         Pause();
     }*/
 
-    private void PauseOff()
+    public void PauseOff()
     {
         coll.enabled = true;
         mesh.enabled = true;
+        pauseCanvas.SetActive(!pauseCanvas.activeInHierarchy);
     }
 
     public void Pause()
