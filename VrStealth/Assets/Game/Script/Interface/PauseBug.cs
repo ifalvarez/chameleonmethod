@@ -30,8 +30,9 @@ public class PauseBug : MonoBehaviour {
 
     private void LoadPlayer(Scene arg0, LoadSceneMode arg1)
     {
-        if(arg0.buildIndex != 0 || arg0.buildIndex != 1)
+        if(arg0.buildIndex != 0 && arg0.buildIndex != 1)
         {
+            SceneManager.SetActiveScene(SceneManager.GetSceneAt(1));    
             player = GameObject.Find("Player");        
             bugPosition = new Vector3(player.transform.position.x + 5, player.transform.position.y + 5, player.transform.position.z + 5);
         }

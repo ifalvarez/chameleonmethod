@@ -7,16 +7,6 @@ public class ButtonsControll : MonoBehaviour
     private static ButtonsControll instance;
     private string actualSceneName;
 
-    void Awake()
-    {        
-        //if (instance == null)
-        //    instance = this;
-        //else
-        //    DestroyImmediate(gameObject);
-
-        //DontDestroyOnLoad(this.gameObject);
-    }
-
 	public void LoadScene(string name )
 	{
         if(name == "MainMenu" )
@@ -35,8 +25,9 @@ public class ButtonsControll : MonoBehaviour
 
     public void RetryScene(GameObject pauseObject)
     {
+        if(pauseObject != null)
+            pauseObject.GetComponent<PauseBug>().PauseOff();
         actualSceneName = GetActualSceneName();
-        pauseObject.GetComponent<PauseBug>().PauseOff();
         SceneManager.UnloadSceneAsync(actualSceneName);
         SceneManager.LoadSceneAsync(actualSceneName, LoadSceneMode.Additive);
     }
