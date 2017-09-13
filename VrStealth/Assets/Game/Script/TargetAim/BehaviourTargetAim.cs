@@ -2,26 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BehaviourTargetAim : MonoBehaviour {
 
     [SerializeField] private float maxDistanceAction;
     [SerializeField] private float timeToShowTarget;
     [SerializeField] private float timeToHideTarget;
-    [SerializeField] private Image targetAim;
-    [SerializeField] private GameObject objectPoint;
 
     private float timerToHide;
     private float timerToShow;
     private float currentOpacity;
     private float lastOpacity;
 
+    private Image targetAim;
     private Ray distanceRay;
     private RaycastHit hitInfo;
     public bool isInteracting;
 
+    void Awake()
+    {
+        //SceneManager.sceneLoaded += AssignRayCastPosition;
+    }
+
+    /*private void AssignRayCastPosition(Scene arg0, LoadSceneMode arg1)
+    {
+            rayCastStartPoint = Tongue.tongueTransform.gameObject;        
+    }*/
+
     private void Start()
     {
+        targetAim = GetComponent<Image>();
         showTarget = ShowTarget();
         hideTarget = HideTarget();
         isInteracting = false;
@@ -30,23 +41,30 @@ public class BehaviourTargetAim : MonoBehaviour {
 
     private void FixedUpdate()
     {       
-        if (Physics.Raycast(objectPoint.transform.position, objectPoint.transform.forward.normalized * maxDistanceAction, out hitInfo))
+        if (Physics.Raycast(Tongue.tongueTransform.position + Tongue.tongueTransform.forward.normalized/2 , Tongue.tongueTransform.forward.normalized , out hitInfo, maxDistanceAction))
         {
-            if (!isInteracting)
+            print(hitInfo.transform.name);
+            if (hitInfo.transform.tag.Equals("Tongue"))
             {
-                timerToShow = 0;
-                StopAllCoroutines();
-                showTarget = ShowTarget();
-                StartCoroutine(showTarget);
-                isInteracting = true;
-            }                    
-        }
+                
+            }
+            else {
+                if (!isInteracting)
+                {
+                    timerToShow = 0;
+                    StopCoroutine(hideTarget);
+                    showTarget = ShowTarget();
+                    StartCoroutine(showTarget);
+                    isInteracting = true;
+                }
+            }
+        }        
         else
         {
             if (isInteracting)
             {
                 timerToHide = 0;
-                StopAllCoroutines();
+                StopCoroutine(showTarget);
                 hideTarget = HideTarget();
                 StartCoroutine(hideTarget);
                 isInteracting = false;
@@ -54,10 +72,10 @@ public class BehaviourTargetAim : MonoBehaviour {
         }
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(objectPoint.transform.position, objectPoint.transform.forward.normalized * maxDistanceAction);
-    }
+   //void OnDrawGizmos()
+   // {
+   //     Gizmos.DrawRay(Tongue.tongueTransform.position + Tongue.tongueTransform.forward.normalized/2, Tongue.tongueTransform.forward.normalized * maxDistanceAction);
+   // }
 
     IEnumerator showTarget;
     IEnumerator ShowTarget()
@@ -69,7 +87,6 @@ public class BehaviourTargetAim : MonoBehaviour {
         {            
             timerToShow += Time.deltaTime;
             currentOpacity = Mathf.Lerp(lastOpacity, 1, timerToShow / timeToShowTarget);
-            print(currentOpacity);
             newColor.a = currentOpacity;
             targetAim.color = newColor;
             yield return null;

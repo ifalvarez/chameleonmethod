@@ -20,12 +20,12 @@ public class PauseBug : MonoBehaviour {
     {
         SceneManager.sceneLoaded += LoadPlayer;
     }
+
     private void Start()
     {
         pauseCanvas.SetActive(false);
         coll = GetComponent<BoxCollider>();
-        mesh = GetComponent<MeshRenderer>();
-        
+        mesh = GetComponent<MeshRenderer>();        
     }
 
     private void LoadPlayer(Scene arg0, LoadSceneMode arg1)
@@ -50,20 +50,7 @@ public class PauseBug : MonoBehaviour {
     void Update()
     {
         transform.position = bugPosition;
-       /* if(!isInteractable)
-        {
-            if(canvasIsActive == pauseCanvas.activeInHierarchy)
-            {
-                PauseOff();
-                isInteractable = true;
-            }
-        }*/
     }
-
- /*   void OnMouseDown()
-    {
-        Pause();
-    }*/
 
     public void PauseOff()
     {
