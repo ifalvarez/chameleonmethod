@@ -87,9 +87,12 @@
     <Compile Include="Assets\Game\Script\Enemies\Bird\Bird.cs" />
     <Compile Include="Assets\Game\Script\Enemies\Bird\BirdDectection.cs" />
     <Compile Include="Assets\Game\Script\Enemies\BushSnake\BushSnake.cs" />
+    <Compile Include="Assets\Game\Script\Interface\ButtonsCollision.cs" />
     <Compile Include="Assets\Game\Script\Interface\ButtonsControll.cs" />
     <Compile Include="Assets\Game\Script\Interface\PauseBug.cs" />
     <Compile Include="Assets\Game\Script\MouseRotation.cs" />
+    <Compile Include="Assets\Game\Script\TargetAim\BehaviourTargetAim.cs" />
+    <Compile Include="Assets\Game\Script\TargetAim\DontDestroyTargetAim.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoSceneManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\GVRDemoManager.cs" />

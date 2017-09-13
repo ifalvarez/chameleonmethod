@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Tongue : MonoBehaviour
 {
+    public static Transform tongueTransform;
+
     public Transform body;
     public Transform tongueTip;
     public float tongueStretchSpeed = 0.0f;
@@ -14,6 +16,7 @@ public class Tongue : MonoBehaviour
 
     private void Awake()
     {
+        tongueTransform = transform;
         TongueTip.OnTongueHit += StartMoveToTarget;
         TongueTip.OnHardHit += HardSurfaceHit;
         initialDistance = Vector3.Distance(transform.position, tongueTip.position);
