@@ -1,0 +1,299 @@
+fileFormatVersion: 2
+guid: fd0c2ac3ce9312044980f60fdbcf0e7c
+timeCreated: 1505428418
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Body
+    100004: Bone001
+    100006: Chest
+    100008: Clavicle
+    100010: Clavicle(mirrored)
+    100012: Eyes
+    100014: Head
+    100016: HeadEnd
+    100018: hip
+    100020: HipEnd
+    100022: LeftBackFinger00
+    100024: LeftBackFinger01
+    100026: LeftBackFinger02
+    100028: LeftBackFingerEnd
+    100030: LeftEye
+    100032: LeftEyeEnd
+    100034: LeftLeftFinger00
+    100036: LeftLeftFinger01
+    100038: LeftLeftFinger02
+    100040: LeftLeftFingerEnd
+    100042: LeftLeg
+    100044: LeftLeg00
+    100046: LeftLeg01
+    100048: LeftLeg02
+    100050: LeftLegEnd
+    100052: LeftLegPalm
+    100054: LeftRightFinger00
+    100056: LeftRightFinger01
+    100058: LeftRightFinger02
+    100060: LeftRightFingerEnd
+    100062: LegPalm
+    100064: LowerPeak
+    100066: LowerPeak 1
+    100068: LowerPeakEnd
+    100070: MidWing
+    100072: MidWing(mirrored)
+    100074: Neck
+    100076: OuterWing
+    100078: OuterWing(mirrored)
+    100080: RighBackFinger00
+    100082: RighBackFinger01
+    100084: RighBackFinger02
+    100086: RighBackFingerEnd
+    100088: RighLeftFinger00
+    100090: RighLeftFinger01
+    100092: RighLeftFinger02
+    100094: RighLeftFingerEnd
+    100096: RighRighFinger1
+    100098: RighRighFinger2
+    100100: RighRighFinger3
+    100102: RighRighFingerEnd
+    100104: RightEye
+    100106: RightEye 1
+    100108: RightEyeEnd
+    100110: RightLeg
+    100112: RightLeg 1
+    100114: RightLegEnd
+    100116: RightLowerLeg
+    100118: RightUpperLeg
+    100120: Root
+    100122: Shoulder
+    100124: Shoulder(mirrored)
+    100126: TailPart1
+    100128: TailPart2
+    100130: TailPart3
+    100132: TailStart
+    100134: UpperPeak
+    100136: UpperPeak 1
+    100138: UpperPeakEnd
+    100140: WingEnd
+    100142: WingEnd(mirrored)
+    400000: //RootNode
+    400002: Body
+    400004: Bone001
+    400006: Chest
+    400008: Clavicle
+    400010: Clavicle(mirrored)
+    400012: Eyes
+    400014: Head
+    400016: HeadEnd
+    400018: hip
+    400020: HipEnd
+    400022: LeftBackFinger00
+    400024: LeftBackFinger01
+    400026: LeftBackFinger02
+    400028: LeftBackFingerEnd
+    400030: LeftEye
+    400032: LeftEyeEnd
+    400034: LeftLeftFinger00
+    400036: LeftLeftFinger01
+    400038: LeftLeftFinger02
+    400040: LeftLeftFingerEnd
+    400042: LeftLeg
+    400044: LeftLeg00
+    400046: LeftLeg01
+    400048: LeftLeg02
+    400050: LeftLegEnd
+    400052: LeftLegPalm
+    400054: LeftRightFinger00
+    400056: LeftRightFinger01
+    400058: LeftRightFinger02
+    400060: LeftRightFingerEnd
+    400062: LegPalm
+    400064: LowerPeak
+    400066: LowerPeak 1
+    400068: LowerPeakEnd
+    400070: MidWing
+    400072: MidWing(mirrored)
+    400074: Neck
+    400076: OuterWing
+    400078: OuterWing(mirrored)
+    400080: RighBackFinger00
+    400082: RighBackFinger01
+    400084: RighBackFinger02
+    400086: RighBackFingerEnd
+    400088: RighLeftFinger00
+    400090: RighLeftFinger01
+    400092: RighLeftFinger02
+    400094: RighLeftFingerEnd
+    400096: RighRighFinger1
+    400098: RighRighFinger2
+    400100: RighRighFinger3
+    400102: RighRighFingerEnd
+    400104: RightEye
+    400106: RightEye 1
+    400108: RightEyeEnd
+    400110: RightLeg
+    400112: RightLeg 1
+    400114: RightLegEnd
+    400116: RightLowerLeg
+    400118: RightUpperLeg
+    400120: Root
+    400122: Shoulder
+    400124: Shoulder(mirrored)
+    400126: TailPart1
+    400128: TailPart2
+    400130: TailPart3
+    400132: TailStart
+    400134: UpperPeak
+    400136: UpperPeak 1
+    400138: UpperPeakEnd
+    400140: WingEnd
+    400142: WingEnd(mirrored)
+    4300000: Body
+    4300002: Eyes
+    4300004: LeftLeg
+    4300006: LowerPeak
+    4300008: RightEye
+    4300010: RightLeg
+    4300012: UpperPeak
+    7400000: Fly
+    7400002: Attack
+    9500000: //RootNode
+    13700000: Body
+    13700002: Eyes
+    13700004: LeftLeg
+    13700006: LowerPeak
+    13700008: RightEye
+    13700010: RightLeg 1
+    13700012: UpperPeak
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fly
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
