@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
+    public Animator birdAnim;
     public BirdDectection detectionArea;
     public float flySpeed = 0.0f;
     public float maxDistanceToTurn = 0.0f;
     public float rotationSpeed = 0.0f;
     public float minReturnAngle = 0.0f;
+    public float attackUpOffSet = 0.0f;
+    public float attackDistanceOffSet = 0.0f;
     Vector3 startPosition;
     public bool left = false;
 
@@ -35,6 +38,7 @@ public class Bird : MonoBehaviour
         StopAllCoroutines();
         attackPlayer = AttackPlayer(detectedPosition);
         StartCoroutine(attackPlayer);
+        birdAnim.SetTrigger("Attack");
     }
 
     IEnumerator flyAround;
@@ -78,9 +82,9 @@ public class Bird : MonoBehaviour
     {
         while(true)
         {
-            transform.LookAt(target.position);
+            transform.LookAt(target.position + (Vector3.up * attackUpOffSet));
             transform.position += transform.forward * flySpeed * Time.deltaTime;
-            if(Vector3.Distance(transform.position, target.position) <= 0.1f)
+            if(Vector3.Distance(transform.position, target.position + (Vector3.up * attackUpOffSet)) <= attackDistanceOffSet)
             {
                 Debug.Log("Game Over");
                 break;
