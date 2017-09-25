@@ -7,13 +7,14 @@ public class BushSnake : MonoBehaviour
     public event BushSnakeEventsDelegate OnTimeOver; //game over for the player
 
     public float attackTime = 0.0f;
+    public Animator snakeAnim;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Jugador")
         {
-
             print("Looking At Player");
+            snakeAnim.SetTrigger("ComeOut");
             attack = SnakeAttack();
             StartCoroutine(attack);
         }
@@ -23,6 +24,7 @@ public class BushSnake : MonoBehaviour
     {
         if (other.tag == "Jugador")
         {
+            snakeAnim.SetTrigger("GoBack");
             StopAllCoroutines();
             Debug.Log("Player Gone");
         }
@@ -32,6 +34,8 @@ public class BushSnake : MonoBehaviour
     IEnumerator SnakeAttack()
     {
         yield return new WaitForSeconds(attackTime);
-        Debug.Log("I ate the chameleon");
+        snakeAnim.SetTrigger("Attack");
+        GameManager.GameOver();
+        Debug.Log("Game Over");
     }
 }

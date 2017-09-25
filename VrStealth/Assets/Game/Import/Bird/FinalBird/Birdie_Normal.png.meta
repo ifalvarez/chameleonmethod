@@ -64,7 +64,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 2048
     textureFormat: 12
     textureCompression: 1
     compressionQuality: 50
@@ -73,7 +73,7 @@ TextureImporter:
     overridden: 1
   - buildTarget: Android
     maxTextureSize: 512
-    textureFormat: 47
+    textureFormat: 34
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0

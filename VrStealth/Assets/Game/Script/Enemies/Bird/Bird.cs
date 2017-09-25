@@ -11,8 +11,8 @@ public class Bird : MonoBehaviour
     public float minReturnAngle = 0.0f;
     public float attackUpOffSet = 0.0f;
     public float attackDistanceOffSet = 0.0f;
-    Vector3 startPosition;
     public bool left = false;
+    Vector3 startPosition;
 
     public enum BirdState
     {
@@ -24,6 +24,7 @@ public class Bird : MonoBehaviour
     private void Awake()
     {
         detectionArea.OnPlayerDetect += OnPlayerDetected;
+        GameManager.OnGameOver += OnGameOver;
         startPosition = transform.position;
     }
 
@@ -39,6 +40,19 @@ public class Bird : MonoBehaviour
         attackPlayer = AttackPlayer(detectedPosition);
         StartCoroutine(attackPlayer);
         birdAnim.SetTrigger("Attack");
+    }
+
+    void OnGameOver()
+    {
+        if (flyAround != null)
+        {
+            StopCoroutine(flyAround);
+        }
+        if(attackPlayer != null)
+        {
+            StopCoroutine(attackPlayer);
+        }
+        birdAnim.SetTrigger("Fly");
     }
 
     IEnumerator flyAround;
@@ -87,6 +101,7 @@ public class Bird : MonoBehaviour
             if(Vector3.Distance(transform.position, target.position + (Vector3.up * attackUpOffSet)) <= attackDistanceOffSet)
             {
                 Debug.Log("Game Over");
+                GameManager.GameOver();
                 break;
             }
             yield return null;

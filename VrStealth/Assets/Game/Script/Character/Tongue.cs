@@ -19,6 +19,7 @@ public class Tongue : MonoBehaviour
         tongueTransform = transform;
         TongueTip.OnTongueHit += StartMoveToTarget;
         TongueTip.OnHardHit += HardSurfaceHit;
+        GameManager.OnGameOver += OnGameOver;
         initialDistance = Vector3.Distance(transform.position, tongueTip.position);
         targetStartPosition = tongueTip.localPosition;
     }
@@ -40,6 +41,11 @@ public class Tongue : MonoBehaviour
     void HardSurfaceHit(Vector3 hitPoint)
     {
         stretching = false;
+    }
+
+    void OnGameOver()
+    {
+        StopCoroutine(moveTorwardsTarget);
     }
 
     IEnumerator moveTorwardsTarget;

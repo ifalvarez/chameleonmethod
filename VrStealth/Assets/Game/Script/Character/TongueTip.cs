@@ -7,7 +7,7 @@ public class TongueTip : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Stickable")
+        if (other.tag == "Stickable" && GameManager.CanPlay == true)
         {
             if (OnTongueHit != null)
             {
