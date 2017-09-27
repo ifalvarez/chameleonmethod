@@ -192,7 +192,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.08
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -219,7 +219,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1032014009940622}
   m_Enabled: 0
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032014009940622}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d877aeddf14a3ab45a8dc3d5314d2074, type: 3}
   m_Name: 
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   clampAngle: 80
-  selectedAxes: 1
+  selectedAxes: 3
 --- !u!114 &114486075646513816
 MonoBehaviour:
   m_ObjectHideFlags: 1

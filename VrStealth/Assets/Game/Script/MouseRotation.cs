@@ -16,7 +16,8 @@ public class MouseRotation : MonoBehaviour
     {
         xAndYAxis,
         xAxis,
-        yAxis
+        yAxis,
+        autoX
     }
     public MouseAxes selectedAxes = MouseAxes.xAndYAxis;
 
@@ -55,6 +56,9 @@ public class MouseRotation : MonoBehaviour
                 rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
                 myRotation = Quaternion.Euler(transform.rotation.x, rotY, transform.rotation.z);
                 transform.localRotation = myRotation;
+                break;
+            case MouseAxes.autoX:
+                transform.Rotate(0.0f, 0.1f, 0.0f);
                 break;
         }        
     }

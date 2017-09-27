@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.VR;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         canPlay = true; //ERASE TEST ONLY
+        Application.targetFrameRate = 60;
+        VRSettings.renderScale = 1.0f;
     }
 
     public static void StartGame()

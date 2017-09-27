@@ -43,7 +43,6 @@ public class BehaviourTargetAim : MonoBehaviour {
     {       
         if (Physics.Raycast(Tongue.tongueTransform.position + Tongue.tongueTransform.forward.normalized/2 , Tongue.tongueTransform.forward.normalized , out hitInfo, maxDistanceAction))
         {
-            print(hitInfo.transform.name);
             if (hitInfo.transform.tag.Equals("Tongue"))
             {
                 
