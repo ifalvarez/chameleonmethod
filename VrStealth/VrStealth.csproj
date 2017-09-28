@@ -85,6 +85,7 @@
     <Compile Include="Assets\Game\Script\Character\StompStartEnd.cs" />
     <Compile Include="Assets\Game\Script\Character\Tongue.cs" />
     <Compile Include="Assets\Game\Script\Character\TongueTip.cs" />
+    <Compile Include="Assets\Game\Script\Curtain\Curtain.cs" />
     <Compile Include="Assets\Game\Script\Enemies\Bird\Bird.cs" />
     <Compile Include="Assets\Game\Script\Enemies\Bird\BirdDectection.cs" />
     <Compile Include="Assets\Game\Script\Enemies\BushSnake\BushSnake.cs" />

@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HardSurface
+  - Jugador
+  - Tongue
+  - Stickable
   layers:
   - Default
   - TransparentFX
@@ -19,7 +23,7 @@ TagManager:
   - MazeTurretBullet
   - Bg
   - FPSWeapon
-  - 
+  - Birds
   - 
   - 
   - 

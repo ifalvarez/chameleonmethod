@@ -1,16 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonsCollision : MonoBehaviour {
-    
+public class ButtonsCollision : MonoBehaviour
+{
+    Button btn;
+
+    private void Awake()
+    {
+        btn = GetComponent<Button>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Tongue")
         {
-            GetComponent<Button>().onClick.Invoke();
+            btn.onClick.Invoke();
         }
     }
 }

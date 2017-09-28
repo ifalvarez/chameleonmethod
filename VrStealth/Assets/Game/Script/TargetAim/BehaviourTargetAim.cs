@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -41,13 +40,14 @@ public class BehaviourTargetAim : MonoBehaviour {
 
     private void FixedUpdate()
     {       
-        if (Physics.Raycast(Tongue.tongueTransform.position + Tongue.tongueTransform.forward.normalized/2 , Tongue.tongueTransform.forward.normalized , out hitInfo, maxDistanceAction))
+        if (Tongue.tongueTransform != null && Physics.Raycast(Tongue.tongueTransform.position + Tongue.tongueTransform.forward.normalized/2 , Tongue.tongueTransform.forward.normalized , out hitInfo, maxDistanceAction))
         {
             if (hitInfo.transform.tag.Equals("Tongue"))
             {
                 
             }
-            else {
+            else
+            {
                 if (!isInteracting)
                 {
                     timerToShow = 0;
@@ -60,7 +60,7 @@ public class BehaviourTargetAim : MonoBehaviour {
         }        
         else
         {
-            if (isInteracting)
+            if (isInteracting)// se vuelve ocurito
             {
                 timerToHide = 0;
                 StopCoroutine(showTarget);
@@ -71,10 +71,10 @@ public class BehaviourTargetAim : MonoBehaviour {
         }
     }
 
-   //void OnDrawGizmos()
-   // {
-   //     Gizmos.DrawRay(Tongue.tongueTransform.position + Tongue.tongueTransform.forward.normalized/2, Tongue.tongueTransform.forward.normalized * maxDistanceAction);
-   // }
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawRay(Tongue.tongueTransform.position + Tongue.tongueTransform.forward.normalized / 2, Tongue.tongueTransform.forward.normalized * maxDistanceAction);
+    //}
 
     IEnumerator showTarget;
     IEnumerator ShowTarget()

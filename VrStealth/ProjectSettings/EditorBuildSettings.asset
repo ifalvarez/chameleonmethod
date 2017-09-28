@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/MainMenu.unity
     guid: 893068d6dbf14a74b8875bb4c8bafd03
   - enabled: 1
-    path: Assets/Game/VFX/VFXTest.unity
-    guid: 976b6e13afff02947870da15ffecf716
+    path: Assets/Game/Scenes/Level1.unity
+    guid: de22e04cd1ade55489d38d3687cd5fe9
+  - enabled: 1
+    path: Assets/Game/Scenes/InterfaceIngame.unity
+    guid: 4e6e4d604a0410446839df88694fedb2
