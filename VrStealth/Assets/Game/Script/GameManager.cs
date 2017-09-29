@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-//using UnityEngine.VR;
+using UnityEngine.VR;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +12,23 @@ public class GameManager : MonoBehaviour
     static bool playerCanTongue = false;
     public static bool CanUseTongue { get { return playerCanTongue; } }
 
+    static GameManager instance;
+
     private void Awake()
     {
         canPlay = true; //ERASE TEST ONLY
-        //Application.targetFrameRate = 60;
-        //VRSettings.renderScale = 1.0f;
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+        Application.targetFrameRate = 60;
+        VRSettings.renderScale = 0.7f;
     }
 
     public static void StartGame()

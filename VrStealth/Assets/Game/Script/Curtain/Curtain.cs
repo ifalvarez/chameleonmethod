@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(CanvasScaler))]
-[RequireComponent(typeof(GraphicRaycaster))]
 public class Curtain : MonoBehaviour
 {
     public delegate void CurtainEventsDelegate();
@@ -89,6 +88,7 @@ public class Curtain : MonoBehaviour
                 ClearEventRegistry();
                 SceneManager.LoadSceneAsync(levelToLoad);
                 curtainBackground.color = newColor;
+                Debug.Log("Closed Curtain");
                 break;
             }
             curtainBackground.color = newColor;
@@ -120,6 +120,7 @@ public class Curtain : MonoBehaviour
                     OnOpen();
                 }
                 curtainBackground.color = newColor;
+                Debug.Log("Opened Curtain");
                 break;
             }
             curtainBackground.color = newColor;
