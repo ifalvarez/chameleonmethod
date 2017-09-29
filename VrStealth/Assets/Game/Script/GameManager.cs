@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     static bool canPlay = false;
     public static bool CanPlay { get{return canPlay;} }
 
+    static bool playerCanTongue = false;
+    public static bool CanUseTongue { get { return playerCanTongue; } }
+
     private void Awake()
     {
         canPlay = true; //ERASE TEST ONLY

@@ -34,6 +34,10 @@ public class BushSnake : MonoBehaviour
     IEnumerator SnakeAttack()
     {
         yield return new WaitForSeconds(attackTime);
+        if(OnTimeOver != null)
+        {
+            OnTimeOver();
+        }
         snakeAnim.SetTrigger("Attack");
         GameManager.GameOver();
         Debug.Log("Game Over");

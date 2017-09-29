@@ -2,7 +2,6 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 [RequireComponent(typeof(Canvas))]
 [RequireComponent(typeof(CanvasScaler))]
@@ -20,6 +19,7 @@ public class Curtain : MonoBehaviour
 
     IEnumerator closeCurtainMethod, openCurtainMethod;
     string levelToLoad;
+    float auxCurtainTime = 0.0f;
 
     private void Awake()
     {
@@ -72,23 +72,26 @@ public class Curtain : MonoBehaviour
     IEnumerator CloseCurtain()
     {
         yield return new WaitForSeconds(startDelay);
-        float delta = 0.0f;
+        auxCurtainTime = timeToCloseCurtain + Time.time;
+        Color newColor = curtainBackground.color;
+        newColor.a = 0.0f;
+
         while (true)
         {
-            delta += Time.deltaTime;
-            curtainBackground.color += new Color(0.0f, 0.0f, 0.0f, delta / timeToCloseCurtain);
-            if(curtainBackground.color.a >= 1.0f)
+            newColor.a = 1.0f - ((auxCurtainTime - Time.time) * 1.0f / timeToCloseCurtain);
+            if (newColor.a >= 1.0f)
             {
-                curtainBackground.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+                newColor.a = 1.0f;
                 if(OnClose != null)
                 {
                     OnClose();
                 }
                 ClearEventRegistry();
                 SceneManager.LoadSceneAsync(levelToLoad);
-                Debug.Log("Curtain Close");                
+                curtainBackground.color = newColor;
                 break;
             }
+            curtainBackground.color = newColor;
             yield return null;
         }
     }
@@ -101,23 +104,22 @@ public class Curtain : MonoBehaviour
             StartCoroutine(openCurtainMethod);
         }
     }
-
+    
     IEnumerator OpenCurtain()
     {
-        float delta = 0.0f;
+        auxCurtainTime = timeToCloseCurtain + Time.time;
         Color newColor = curtainBackground.color;
         while (true)
         {
-            delta += Time.deltaTime;
-            newColor.a = Mathf.Lerp(newColor.a, 0.0f, delta / timeToCloseCurtain);
-            if (curtainBackground.color.a <= 0.0f)
+            newColor.a = (auxCurtainTime - Time.time) * 1.0f / timeToCloseCurtain;
+            if (newColor.a <= 0.0f)
             {
                 curtainBackground.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
                 if (OnOpen != null)
                 {
                     OnOpen();
                 }
-                Debug.Log("Curtain Open");
+                curtainBackground.color = newColor;
                 break;
             }
             curtainBackground.color = newColor;

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class ButtonsCollision : MonoBehaviour
 {
+    public ParticleSystem selectionParticles;
     Button btn;
 
     private void Awake()
@@ -15,6 +16,10 @@ public class ButtonsCollision : MonoBehaviour
         if (other.transform.tag == "Tongue")
         {
             btn.onClick.Invoke();
+            if (selectionParticles.isPlaying == false)
+            {
+                selectionParticles.Play();
+            }
         }
     }
 }
