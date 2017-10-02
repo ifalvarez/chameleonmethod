@@ -81,7 +81,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Game\Script\Character\CharacterControll.cs" />
     <Compile Include="Assets\Game\Script\Character\StompStartEnd.cs" />
     <Compile Include="Assets\Game\Script\Character\Tongue.cs" />
     <Compile Include="Assets\Game\Script\Character\TongueTip.cs" />

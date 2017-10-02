@@ -1,9 +1,36 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TongueTip : MonoBehaviour
 {
     public delegate void TongueEventDelegate(Vector3 worldHit);
     public static event TongueEventDelegate OnTongueHit, OnHardHit;
+
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += ResetStatics;
+    }
+
+    private void ResetStatics(Scene arg0, LoadSceneMode arg1)
+    {
+        if (OnTongueHit != null)
+        {
+            foreach (TongueEventDelegate reg in OnTongueHit.GetInvocationList())
+            {
+                OnTongueHit -= reg;
+            }
+        }
+
+        if (OnHardHit != null)
+        {
+            foreach (TongueEventDelegate reg in OnHardHit.GetInvocationList())
+            {
+                OnHardHit -= reg;
+            }
+        }
+        SceneManager.sceneLoaded -= ResetStatics;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

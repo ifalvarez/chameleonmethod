@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 4909420757096440}
   - component: {fileID: 65140979462622132}
   - component: {fileID: 114199619104097852}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SnakeBushTrap2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,16 +647,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1257607521477338}
-  m_LocalRotation: {x: 0.55268866, y: -0.44106153, z: -0.44106153, w: -0.55268866}
-  m_LocalPosition: {x: -15.22, y: 28.9, z: -10.57}
-  m_LocalScale: {x: 5.7529597, y: 5.752961, z: 5.7529607}
+  m_LocalRotation: {x: 0.38004655, y: 0.5962924, z: 0.5962924, w: -0.38004655}
+  m_LocalPosition: {x: 5.86, y: 51.1, z: -19.44}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4768960756925140}
   - {fileID: 4638164970543126}
   - {fileID: 4431390757684496}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -282.818}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: -474.977}
 --- !u!4 &4982263582897922
 Transform:
   m_ObjectHideFlags: 1
@@ -1147,7 +1147,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1763454110
+  randomSeed: -2046648768
   InitialModule:
     serializedVersion: 3
     enabled: 1

@@ -11,7 +11,7 @@ public class StompStartEnd : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Jugador" && stumpType == StumpType.end)
+        if(other.tag == "Jugador" && stumpType == StumpType.end && GameManager.IsGameOver == false)
         {
             Debug.Log("Player Ended");
             GameManager.ClearedLevel();

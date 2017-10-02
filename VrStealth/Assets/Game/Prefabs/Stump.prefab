@@ -23,12 +23,13 @@ GameObject:
   - component: {fileID: 23522069694463420}
   - component: {fileID: 95527611568356996}
   - component: {fileID: 65651289399457414}
+  - component: {fileID: 114627750125893636}
   m_Layer: 0
   m_Name: Stump
   m_TagString: Stickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1378900418488288
 GameObject:
@@ -46,7 +47,7 @@ GameObject:
   m_TagString: HardSurface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4009651353305626
 Transform:
@@ -160,11 +161,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1002735963334240}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 11.223749, y: 2.1286204, z: 9.778466}
-  m_Center: {x: -2.829129, y: 54.075653, z: -0.9987694}
+  m_Size: {x: 12.271001, y: 4.012901, z: 10.782681}
+  m_Center: {x: -2.8101695, y: 53.13351, z: -1.5008767}
 --- !u!65 &65800104206551022
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -194,3 +195,15 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114627750125893636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002735963334240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c5d6fae29283446ac525d9250cf9ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stumpType: 0

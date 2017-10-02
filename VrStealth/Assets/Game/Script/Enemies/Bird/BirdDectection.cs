@@ -7,12 +7,13 @@ public class BirdDectection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Jugador")
+        if(other.tag == "Jugador" && Tongue.PlayerInvisible == false)
         {
             if(OnPlayerDetect != null)
             {
                 OnPlayerDetect(other.transform);
             }
+            GameManager.GameOver();
             Debug.Log("Found Player");
         }
     }

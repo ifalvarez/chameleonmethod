@@ -6,11 +6,15 @@ public class GameManager : MonoBehaviour
     public delegate void ManagerEventsDelegate();
     public static event ManagerEventsDelegate OnGameOver, OnClearLevel;
 
-    static bool canPlay = false;
+    static bool canPlay = true;
     public static bool CanPlay { get{return canPlay;} }
 
     static bool playerCanTongue = false;
     public static bool CanUseTongue { get { return playerCanTongue; } }
+
+    static bool gameOver = false;
+    public static bool IsGameOver { get { return gameOver; } }
+
 
     static GameManager instance;
 
@@ -52,6 +56,7 @@ public class GameManager : MonoBehaviour
             OnGameOver();
         }        
         canPlay = false;
+        gameOver = true;
     }
 
     public static void ResetGame()

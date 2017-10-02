@@ -42,11 +42,7 @@ public class BehaviourTargetAim : MonoBehaviour {
     {       
         if (Tongue.tongueTransform != null && Physics.Raycast(Tongue.tongueTransform.position + Tongue.tongueTransform.forward.normalized/2 , Tongue.tongueTransform.forward.normalized , out hitInfo, maxDistanceAction))
         {
-            if (hitInfo.transform.tag.Equals("Tongue"))
-            {
-                
-            }
-            else
+            if(hitInfo.transform.tag.Equals("Tongue") == false && (hitInfo.transform.tag.Equals("Stickable") || hitInfo.transform.tag.Equals("HardSurface")))
             {
                 if (!isInteracting)
                 {
@@ -60,7 +56,7 @@ public class BehaviourTargetAim : MonoBehaviour {
         }        
         else
         {
-            if (isInteracting)// se vuelve ocurito
+            if (isInteracting)
             {
                 timerToHide = 0;
                 StopCoroutine(showTarget);

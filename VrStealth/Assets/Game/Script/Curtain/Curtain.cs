@@ -19,6 +19,7 @@ public class Curtain : MonoBehaviour
     IEnumerator closeCurtainMethod, openCurtainMethod;
     string levelToLoad;
     float auxCurtainTime = 0.0f;
+    Canvas cnvs;
 
     private void Awake()
     {
@@ -31,8 +32,11 @@ public class Curtain : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        cnvs = GetComponent<Canvas>();
         SceneManager.sceneLoaded += OpenCurtainAndContinue;
         curtainBackground.color = new Color(curtainBackground.color.r, curtainBackground.color.g, curtainBackground.color.b, 1.0f);
+        cnvs.worldCamera = Camera.main;
+        cnvs.planeDistance = 1;
         StartCoroutine(StartDelay());
     }
 
@@ -88,7 +92,7 @@ public class Curtain : MonoBehaviour
                 ClearEventRegistry();
                 SceneManager.LoadSceneAsync(levelToLoad);
                 curtainBackground.color = newColor;
-                Debug.Log("Closed Curtain");
+                //Debug.Log("Closed Curtain");
                 break;
             }
             curtainBackground.color = newColor;
@@ -102,6 +106,7 @@ public class Curtain : MonoBehaviour
         {
             openCurtainMethod = OpenCurtain();
             StartCoroutine(openCurtainMethod);
+            cnvs.worldCamera = Camera.main;
         }
     }
     
@@ -120,7 +125,7 @@ public class Curtain : MonoBehaviour
                     OnOpen();
                 }
                 curtainBackground.color = newColor;
-                Debug.Log("Opened Curtain");
+                //Debug.Log("Opened Curtain");
                 break;
             }
             curtainBackground.color = newColor;

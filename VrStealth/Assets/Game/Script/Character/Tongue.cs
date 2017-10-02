@@ -14,14 +14,22 @@ public class Tongue : MonoBehaviour
     Vector3 targetStartPosition;
     bool stretching = true;
 
+    static bool playerInvisible = false;
+    public static bool PlayerInvisible { get { return playerInvisible; } }
+
     private void Awake()
     {
-        tongueTransform = transform;
-        TongueTip.OnTongueHit += StartMoveToTarget;
-        TongueTip.OnHardHit += HardSurfaceHit;
+        tongueTransform = transform;        
         GameManager.OnGameOver += OnGameOver;
         initialDistance = Vector3.Distance(transform.position, tongueTip.position);
         targetStartPosition = tongueTip.localPosition;
+        playerInvisible = true;
+    }
+
+    private void Start()
+    {
+        TongueTip.OnTongueHit += StartMoveToTarget;
+        TongueTip.OnHardHit += HardSurfaceHit;
     }
 
     void StartMoveToTarget(Vector3 hitPoint)
@@ -46,11 +54,14 @@ public class Tongue : MonoBehaviour
     void OnGameOver()
     {
         StopCoroutine(moveTorwardsTarget);
+        stretching = false;
+        StartCoroutine(TungueFire());
     }
 
     IEnumerator moveTorwardsTarget;
     IEnumerator moveToTarget(Vector3 hitPoint)
     {
+        playerInvisible = false;
         while(true)
         {
             float lastDistance = Vector3.Distance(transform.position, tongueTip.position);
@@ -64,6 +75,7 @@ public class Tongue : MonoBehaviour
                 tongueTip.localRotation = Quaternion.Euler(Vector3.zero);
                 transform.localScale = Vector3.one;
                 transform.LookAt(tongueTip.position);
+                playerInvisible = true;
                 break;
             }
             yield return null;
@@ -101,6 +113,7 @@ public class Tongue : MonoBehaviour
                     transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1.0f);
                     transform.LookAt(tongueTip.position);
                     stretching = true;
+                    playerInvisible = true;
                     break;
                 }
             }
