@@ -7,9 +7,11 @@ public class CanvasInfo : MonoBehaviour
     public Image looseImage, winImage;
     public Image bloodScreen;
     public float bloodScreenFadeSpeed = 0.0f;
+    public static CanvasInfo instance;
 
     private void Awake()
     {
+        instance = this;
         looseImage.gameObject.SetActive(false);
         winImage.gameObject.SetActive(false);
         GameManager.OnGameOver += OnGameOver;
@@ -18,7 +20,11 @@ public class CanvasInfo : MonoBehaviour
 
     void OnGameOver()
     {
-        looseImage.gameObject.SetActive(true);
+        looseImage.gameObject.SetActive(true);        
+    }
+
+    public void OnSnakeGameOver()
+    {
         StartCoroutine(BleedScreen());
     }
 

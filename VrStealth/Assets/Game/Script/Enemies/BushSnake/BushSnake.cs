@@ -39,5 +39,6 @@ public class BushSnake : MonoBehaviour
         snakeAnim.SetTrigger("Attack");
         yield return new WaitForSeconds(0.15f);
         GameManager.GameOver();
+        CanvasInfo.instance.OnSnakeGameOver();
     }
 }

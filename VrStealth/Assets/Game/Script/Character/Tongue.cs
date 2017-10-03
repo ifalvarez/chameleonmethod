@@ -5,6 +5,7 @@ public class Tongue : MonoBehaviour
 {
     public static Transform tongueTransform;
 
+    public GameObject tongueMesh;
     public Transform body;
     public Transform tongueTip;
     public float tongueStretchSpeed = 0.0f;
@@ -24,6 +25,7 @@ public class Tongue : MonoBehaviour
         initialDistance = Vector3.Distance(transform.position, tongueTip.position);
         targetStartPosition = tongueTip.localPosition;
         playerInvisible = true;
+        tongueMesh.SetActive(false);
     }
 
     private void Start()
@@ -80,6 +82,7 @@ public class Tongue : MonoBehaviour
                 transform.localScale = Vector3.one;
                 transform.LookAt(tongueTip.position);
                 playerInvisible = true;
+                tongueMesh.SetActive(false);
                 break;
             }
             yield return null;
@@ -89,6 +92,7 @@ public class Tongue : MonoBehaviour
     IEnumerator fireTongue;
     IEnumerator TungueFire()
     {
+        tongueMesh.SetActive(true);
         tongueTip.transform.parent = null;
         while(true)
         {
@@ -118,6 +122,7 @@ public class Tongue : MonoBehaviour
                     transform.LookAt(tongueTip.position);
                     stretching = true;
                     playerInvisible = true;
+                    tongueMesh.SetActive(false);
                     break;
                 }
             }
