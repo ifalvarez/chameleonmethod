@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.VR;
 
 public class GameManager : MonoBehaviour
@@ -15,8 +16,9 @@ public class GameManager : MonoBehaviour
     static bool gameOver = false;
     public static bool IsGameOver { get { return gameOver; } }
 
-
     static GameManager instance;
+
+    public float timeToRestart = 0.0f;
 
     private void Awake()
     {
@@ -33,6 +35,22 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 60;
         VRSettings.renderScale = 0.7f;
+        InputTracking.disablePositionalTracking = true;
+        OnGameOver += BackToMain;
+        OnClearLevel += BackToMain;
+        Curtain.OnStarClose += ResetEvents;
+    }
+
+    void BackToMain ()
+    {
+        Debug.Log("Getting Back To Menu");
+        StartCoroutine(RetryLevel());
+    }
+
+    IEnumerator RetryLevel()
+    {
+        yield return new WaitForSeconds(timeToRestart);
+        Curtain.Instance.CloseCurtainAndLoadLevel("MainMenu");
     }
 
     public static void StartGame()
@@ -59,16 +77,22 @@ public class GameManager : MonoBehaviour
         gameOver = true;
     }
 
-    public static void ResetGame()
+    public static void ResetEvents()
     {
         ClearEvents(OnGameOver);
+        ClearEvents(OnClearLevel);
+        OnGameOver += instance.BackToMain;
+        OnClearLevel += instance.BackToMain;
     }
 
     static void ClearEvents(ManagerEventsDelegate events)
     {
-        foreach(ManagerEventsDelegate evento in events.GetInvocationList())
+        if (events != null)
         {
-            OnGameOver -= evento;
+            foreach (ManagerEventsDelegate evento in events.GetInvocationList())
+            {
+                OnGameOver -= evento;
+            }
         }
     }
 }

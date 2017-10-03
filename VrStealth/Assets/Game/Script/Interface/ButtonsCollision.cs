@@ -11,6 +11,11 @@ public class ButtonsCollision : MonoBehaviour
         btn = GetComponent<Button>();
     }
 
+    public void StartGame()
+    {
+        Curtain.Instance.CloseCurtainAndLoadLevel("Level1");
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Tongue")

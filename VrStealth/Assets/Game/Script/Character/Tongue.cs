@@ -53,9 +53,13 @@ public class Tongue : MonoBehaviour
 
     void OnGameOver()
     {
-        StopCoroutine(moveTorwardsTarget);
+        if (moveTorwardsTarget != null)
+        {
+            StopCoroutine(moveTorwardsTarget);
+        }
         stretching = false;
-        StartCoroutine(TungueFire());
+        fireTongue = TungueFire();
+        StartCoroutine(fireTongue);
     }
 
     IEnumerator moveTorwardsTarget;

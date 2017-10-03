@@ -91,6 +91,7 @@
     <Compile Include="Assets\Game\Script\GameManager.cs" />
     <Compile Include="Assets\Game\Script\Interface\ButtonsCollision.cs" />
     <Compile Include="Assets\Game\Script\Interface\ButtonsControll.cs" />
+    <Compile Include="Assets\Game\Script\Interface\CanvasInfo.cs" />
     <Compile Include="Assets\Game\Script\Interface\PauseBug.cs" />
     <Compile Include="Assets\Game\Script\MouseRotation.cs" />
     <Compile Include="Assets\Game\Script\TargetAim\BehaviourTargetAim.cs" />

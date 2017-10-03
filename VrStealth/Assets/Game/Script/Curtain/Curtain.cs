@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Curtain : MonoBehaviour
 {
     public delegate void CurtainEventsDelegate();
-    public static event CurtainEventsDelegate OnClose, OnOpen;
+    public static event CurtainEventsDelegate OnStarClose, OnClose, OnOpen;
 
     public static Curtain Instance;
 
@@ -74,6 +74,10 @@ public class Curtain : MonoBehaviour
 
     IEnumerator CloseCurtain()
     {
+        if (OnStarClose != null)
+        {
+            OnStarClose();
+        }
         yield return new WaitForSeconds(startDelay);
         auxCurtainTime = timeToCloseCurtain + Time.time;
         Color newColor = curtainBackground.color;

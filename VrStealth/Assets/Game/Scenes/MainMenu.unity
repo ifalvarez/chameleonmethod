@@ -9406,9 +9406,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1369159004}
-        m_MethodName: CloseCurtainAndLoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 818202531}
+        m_MethodName: StartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9633,6 +9633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1379b5c9c780f534bb1d53696c84c3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToRestart: 5
 --- !u!4 &1001178566
 Transform:
   m_ObjectHideFlags: 0

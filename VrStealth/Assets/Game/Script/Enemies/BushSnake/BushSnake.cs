@@ -4,7 +4,7 @@ using UnityEngine;
 public class BushSnake : MonoBehaviour
 {
     public delegate void BushSnakeEventsDelegate();
-    public event BushSnakeEventsDelegate OnTimeOver; //game over for the player
+    public event BushSnakeEventsDelegate OnSnakeAttack;
 
     public float attackTime = 0.0f;
     public Animator snakeAnim;
@@ -13,7 +13,6 @@ public class BushSnake : MonoBehaviour
     {
         if(other.gameObject.tag == "Jugador")
         {
-            print("Looking At Player");
             snakeAnim.SetTrigger("ComeOut");
             attack = SnakeAttack();
             StartCoroutine(attack);
@@ -26,7 +25,6 @@ public class BushSnake : MonoBehaviour
         {
             snakeAnim.SetTrigger("GoBack");
             StopAllCoroutines();
-            Debug.Log("Player Gone");
         }
     }
 
@@ -34,12 +32,12 @@ public class BushSnake : MonoBehaviour
     IEnumerator SnakeAttack()
     {
         yield return new WaitForSeconds(attackTime);
-        if(OnTimeOver != null)
+        if(OnSnakeAttack != null)
         {
-            OnTimeOver();
+            OnSnakeAttack();
         }
         snakeAnim.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.15f);
         GameManager.GameOver();
-        Debug.Log("Game Over");
     }
 }

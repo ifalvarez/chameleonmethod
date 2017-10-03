@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TongueTip : MonoBehaviour
@@ -9,10 +8,10 @@ public class TongueTip : MonoBehaviour
 
     private void Awake()
     {
-        SceneManager.sceneLoaded += ResetStatics;
+        Curtain.OnStarClose += ResetStatics;
     }
 
-    private void ResetStatics(Scene arg0, LoadSceneMode arg1)
+    private void ResetStatics()
     {
         if (OnTongueHit != null)
         {
@@ -29,7 +28,8 @@ public class TongueTip : MonoBehaviour
                 OnHardHit -= reg;
             }
         }
-        SceneManager.sceneLoaded -= ResetStatics;
+        Curtain.OnStarClose -= ResetStatics;
+        //Debug.Log("Cleared");
     }
 
     private void OnTriggerEnter(Collider other)
