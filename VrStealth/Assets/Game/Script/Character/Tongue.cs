@@ -32,6 +32,7 @@ public class Tongue : MonoBehaviour
     {
         TongueTip.OnTongueHit += StartMoveToTarget;
         TongueTip.OnHardHit += HardSurfaceHit;
+        GameManager.StartGame();
     }
 
     void StartMoveToTarget(Vector3 hitPoint)
@@ -132,7 +133,7 @@ public class Tongue : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && GameManager.CanUseTongue == true)
         {
             if(fireTongue != null)
             {

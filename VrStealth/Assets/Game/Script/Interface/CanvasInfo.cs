@@ -20,7 +20,9 @@ public class CanvasInfo : MonoBehaviour
 
     void OnGameOver()
     {
-        looseImage.gameObject.SetActive(true);        
+        looseImage.gameObject.SetActive(true);
+        GameManager.OnGameOver -= OnGameOver;
+        GameManager.OnClearLevel -= OnWin;
     }
 
     public void OnSnakeGameOver()
@@ -45,5 +47,7 @@ public class CanvasInfo : MonoBehaviour
     void OnWin()
     {
         winImage.gameObject.SetActive(true);
+        GameManager.OnGameOver -= OnGameOver;
+        GameManager.OnClearLevel -= OnWin;
     }    
 }

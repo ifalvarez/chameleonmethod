@@ -14,7 +14,6 @@ public class BirdDectection : MonoBehaviour
                 OnPlayerDetect(other.transform);
             }
             GameManager.GameOver();
-            Debug.Log("Found Player");
         }
     }
 }

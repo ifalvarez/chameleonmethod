@@ -12,8 +12,8 @@ public class PauseBug : MonoBehaviour {
 
     private BoxCollider coll;
     private MeshRenderer mesh;
-    private bool canvasIsActive;
-    private bool isInteractable;
+    //private bool canvasIsActive;
+    //private bool isInteractable;
     private Vector3 bugPosition;
 
     void Awake()
@@ -65,8 +65,8 @@ public class PauseBug : MonoBehaviour {
         mesh.enabled = false;
         pauseCanvas.transform.position = transform.position;
         pauseCanvas.transform.forward = (player.transform.position - transform.position).normalized * -1;
-        isInteractable = false;
-        canvasIsActive = pauseCanvas.activeInHierarchy;
+        //isInteractable = false;
+        //canvasIsActive = pauseCanvas.activeInHierarchy;
         pauseCanvas.SetActive(!pauseCanvas.activeInHierarchy);
     }
 

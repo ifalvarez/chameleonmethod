@@ -96,7 +96,6 @@ public class Curtain : MonoBehaviour
                 ClearEventRegistry();
                 SceneManager.LoadSceneAsync(levelToLoad);
                 curtainBackground.color = newColor;
-                //Debug.Log("Closed Curtain");
                 break;
             }
             curtainBackground.color = newColor;
@@ -129,7 +128,6 @@ public class Curtain : MonoBehaviour
                     OnOpen();
                 }
                 curtainBackground.color = newColor;
-                //Debug.Log("Opened Curtain");
                 break;
             }
             curtainBackground.color = newColor;

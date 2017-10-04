@@ -39,10 +39,12 @@ public class GameManager : MonoBehaviour
         OnGameOver += BackToMain;
         OnClearLevel += BackToMain;
         Curtain.OnStarClose += ResetEvents;
+        Curtain.OnStarClose += WaitForLoadToInteract;
     }
 
     void BackToMain ()
     {
+        playerCanTongue = false;
         Debug.Log("Getting Back To Menu");
         StartCoroutine(RetryLevel());
     }
@@ -56,6 +58,14 @@ public class GameManager : MonoBehaviour
     public static void StartGame()
     {
         canPlay = true;
+        playerCanTongue = true;
+        gameOver = false;
+    }
+
+    void WaitForLoadToInteract()
+    {
+        playerCanTongue = false;
+        canPlay = false;
     }
 
     public static void ClearedLevel()
@@ -65,6 +75,8 @@ public class GameManager : MonoBehaviour
             OnClearLevel();
         }
         canPlay = false;
+        playerCanTongue = false;
+        gameOver = true;
     }
 
     public static void GameOver()
@@ -82,17 +94,14 @@ public class GameManager : MonoBehaviour
         ClearEvents(OnGameOver);
         ClearEvents(OnClearLevel);
         OnGameOver += instance.BackToMain;
-        OnClearLevel += instance.BackToMain;
+        gameOver = false;
     }
 
     static void ClearEvents(ManagerEventsDelegate events)
     {
-        if (events != null)
+        foreach (ManagerEventsDelegate evento in events.GetInvocationList())
         {
-            foreach (ManagerEventsDelegate evento in events.GetInvocationList())
-            {
-                OnGameOver -= evento;
-            }
-        }
+            OnGameOver -= evento;
+        }        
     }
 }

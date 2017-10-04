@@ -29,7 +29,6 @@ public class TongueTip : MonoBehaviour
             }
         }
         Curtain.OnStarClose -= ResetStatics;
-        //Debug.Log("Cleared");
     }
 
     private void OnTriggerEnter(Collider other)
