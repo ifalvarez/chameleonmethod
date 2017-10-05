@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 60;
-        VRSettings.renderScale = 0.7f;
+        VRSettings.renderScale = 1.0f;
         InputTracking.disablePositionalTracking = true;
         OnGameOver += BackToMain;
         OnClearLevel += BackToMain;
