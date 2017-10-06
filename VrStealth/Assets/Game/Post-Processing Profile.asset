@@ -16,7 +16,7 @@ MonoBehaviour:
     m_Settings:
       mode: 0
       depth:
-        scale: 1
+        scale: 0.269
       motionVectors:
         sourceOpacity: 1
         motionImageOpacity: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       intensity: 1
-      radius: 1.5
-      sampleCount: 10
+      radius: 15
+      sampleCount: 16
       downsampling: 1
       forceForwardCompatibility: 0
       ambientOnly: 0
@@ -120,25 +120,25 @@ MonoBehaviour:
         neutralWhiteLevel: 3
         neutralWhiteClip: 10
       basic:
-        postExposure: 0.06
+        postExposure: 0
         temperature: 0
-        tint: 0
+        tint: 8
         hueShift: 0
-        saturation: 0.94
-        contrast: 0.99
+        saturation: 0.7
+        contrast: 1.48
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
         blue: {x: 0, y: 0, z: 1}
         currentEditingChannel: 0
       colorWheels:
-        mode: 0
+        mode: 1
         log:
-          slope: {r: 1, g: 0.8364587, b: 0.8988513, a: 0}
-          power: {r: 0.5736238, g: 0.6937851, b: 1, a: 0}
-          offset: {r: 1, g: 0.9587408, b: 0.68991065, a: 0}
+          slope: {r: 1, g: 1, b: 1, a: 0}
+          power: {r: 1, g: 1, b: 1, a: 0}
+          offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
-          lift: {r: 1, g: 1, b: 1, a: -0.06648199}
+          lift: {r: 1, g: 1, b: 1, a: 0}
           gamma: {r: 1, g: 1, b: 1, a: 0}
           gain: {r: 1, g: 1, b: 1, a: 0}
       curves:

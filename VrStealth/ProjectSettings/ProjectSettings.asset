@@ -147,7 +147,7 @@ PlayerSettings:
   targetPixelDensity: 0
   resolutionScalingMode: 0
   applicationIdentifier:
-    Android: com.unity3d.vrstandardassets
+    Android: com.timba.thechameleonmethod
     Standalone: unity.Unity.VRSamples
     Tizen: com.unity3d.vrstandardassets
     iOS: com.unity3d.vrstandardassets
@@ -228,8 +228,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: E:/Proyectos/VRStealth/Release/KeyStore/napata.keystore
+  AndroidKeyaliasName: timba
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   androidEnableBanner: 1

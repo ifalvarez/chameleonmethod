@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 124105196576251948}
   - component: {fileID: 81019024433422206}
   - component: {fileID: 114736525555815788}
+  - component: {fileID: 114474065917621032}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -140,7 +141,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1360690514777972}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -156,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879435963160416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4100002, z: -0.1}
+  m_LocalPosition: {x: 0, y: -0.4100002, z: -0.11971191}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4493169877231224}
@@ -183,8 +184,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1735221191993846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4086, z: 0.33769953}
-  m_LocalScale: {x: 0.04873525, y: 0.0487352, z: 0.04873524}
+  m_LocalPosition: {x: 0, y: -0.4086, z: 0.318}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 4142444405255826}
   m_RootOrder: 0
@@ -195,15 +196,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032014009940622}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 1.85, z: -14.86}
+  m_LocalRotation: {x: 0, y: 0, z: -0, w: -1}
+  m_LocalPosition: {x: -243.98, y: 40.17, z: -199.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4142444405255826}
   - {fileID: 224250297539849062}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 360, z: 0}
 --- !u!20 &20646897236174006
 Camera:
   m_ObjectHideFlags: 1
@@ -221,7 +222,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.08
-  far clip plane: 150
+  far clip plane: 400
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -233,7 +234,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
+  m_HDR: 1
   m_AllowMSAA: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -355,6 +356,20 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114474065917621032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360690514777972}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa832da4fe166e848a8a45fa454ea4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 100
+  clampAngle: 80
+  selectedAxes: 0
 --- !u!114 &114678624199629396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -371,14 +386,14 @@ MonoBehaviour:
   tongueTip: {fileID: 4573829029633056}
   tongueStretchSpeed: 50
   maxTongueDistance: 30
-  moveToTargetSpeed: 0.9
+  moveToTargetSpeed: 50
 --- !u!114 &114736525555815788
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1360690514777972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
@@ -422,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e722635f0284ff4aae29f9f1d5bccfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistanceAction: 20
+  maxDistanceAction: 30
   timeToShowTarget: 0.1
   timeToHideTarget: 0.1
   isInteracting: 0
@@ -452,7 +467,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032014009940622}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

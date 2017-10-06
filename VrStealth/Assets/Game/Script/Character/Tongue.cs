@@ -72,7 +72,7 @@ public class Tongue : MonoBehaviour
         while(true)
         {
             float lastDistance = Vector3.Distance(transform.position, tongueTip.position);
-            body.position = Vector3.MoveTowards(body.position, hitPoint, moveToTargetSpeed);
+            body.position = Vector3.MoveTowards(body.position, hitPoint, moveToTargetSpeed * Time.deltaTime);
             transform.LookAt(tongueTip);
             if(lastDistance < Vector3.Distance(transform.position, hitPoint) || Vector3.Distance(body.position, hitPoint) <= 1.0f)
             {
